@@ -26,7 +26,7 @@ def print_top_channels(number, videos_2022, type):
     the_one = 'cocadmin'
     if the_one in viewed_channels and the_one not in top:
         print()
-        print("!!!!!!!!!!! The one without this repo would not exist: %s watched %s time" %(the_one, viewed_channels[the_one]))
+        print("!!!!!!!!!!! The one without this repo would not exist: %s watched %s times" %(the_one, viewed_channels[the_one]))
 
 def print_top_item(number, videos_2022, type):
     print("##### Top %s %s #####" % (number, type))
