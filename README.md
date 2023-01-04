@@ -10,7 +10,7 @@ replace watched-history by your own from Google takeout: https://takeout.google.
 4. click button "Next Step" and wait some times (10 minutes for me)
 
 ## Run Time
-Here is my results (please don't judge :smile:)
+Here is my results (please don't judge :smile:, and yes, my kid is using my account 😸)
 
 Number of Videos watched in 2022:  2005
 
@@ -29,7 +29,7 @@ Last Video of the year: New Cars Story Super Strong Truck Cup, Mack Truck Color 
 9. Underscore_ (28 times)
 10. AstronoGeek (27 times)
 
-!!!!!!!!!!! The one without this repo would not exist: cocadmin watched 20 time
+!!!!!!!!!!! The one without this repo would not exist: cocadmin watched 20 times
 
 ##### Top 10 videos #####
 1.  Le Lion et Le Rat + 6 Fables de La Fontaine | Dessin Animés | Poésie | Avec Les P'tits z'Amis (9 times)
