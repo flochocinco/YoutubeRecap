@@ -21,7 +21,7 @@ def print_top_channels(number, videos_2022, type):
     top = sorted(viewed_channels, key=viewed_channels.get, reverse=True)[:number]
 
     for index, channel in enumerate(top):
-        print("%s: %s (%s times)" % (index+1, channel, viewed_channels[channel]))
+        print("%s. %s (%s times)" % (index+1, channel, viewed_channels[channel]))
 
     the_one = 'cocadmin'
     if the_one in viewed_channels and the_one not in top:
@@ -41,16 +41,29 @@ def print_top_item(number, videos_2022, type):
     top = sorted(viewed_channels, key=viewed_channels.get, reverse=True)[:number]
 
     for index, channel in enumerate(top):
-        print("%s: %s (%s times)" % (index+1, channel.replace("Watched", ""), viewed_channels[channel]))
+        print("%s. %s (%s times)" % (index+1, channel.replace("Watched", ""), viewed_channels[channel]))
 
-def print_first_and_last(videos_2022):
+def print_first_and_last(videos_2022, mediaType):
     #sort by time...it is supposed to be already sorted
     #videos_2022.reverse()
     #time attribute looks like "time": "2022-06-18T13:19:15.732Z"
     videos_2022.sort(key=lambda item: item["time"])
-    print("First Video of the year:", pretty_video_name(videos_2022[0]))
-    print("Last Video of the year:", pretty_video_name(videos_2022[len(videos_2022)-1]))
+    print("First %s of the year: %s" % (mediaType[:-1], pretty_video_name(videos_2022[0])))
+    print("Last %s of the year: %s" % (mediaType[:-1], pretty_video_name(videos_2022[len(videos_2022)-1])))
 
+
+def print_stats(media_2022, topNumber, mediaType, channel_or_artist):
+    print("##### Number of %s in 2022: %d" % (mediaType, len(media_2022)))
+    print()
+
+    print_first_and_last(media_2022, mediaType)
+    print()
+
+    print_top_channels(topNumber, media_2022, channel_or_artist)
+    print()
+
+    print_top_item(topNumber, media_2022, mediaType)
+    print()
 
 
 
@@ -60,35 +73,8 @@ if __name__ == '__main__':
 
     #keep only 2022, video, and filter Youtube Music
     videos_2022 = [item for item in history if item["title"] != 'Visited YouTube Music' and item["time"].startswith('2022') and item["header"] == 'YouTube']
-    print("Number of Videos watched in 2022: ", len(videos_2022))
-    print()
-
-    print_first_and_last(videos_2022)
-
-    print()
-
-    print_top_channels(10, videos_2022, "channels")
-
-    print()
-
-    print_top_item(10, videos_2022, "videos")
-
-    print()
+    print_stats(videos_2022, 10, "videos", "channels")
 
     #Now do the same for Music
-    #keep only 2022, video, and filter Youtube Music
     videos_2022 = [item for item in history if item["title"] != 'Visited YouTube Music' and item["time"].startswith('2022') and item["header"] == 'YouTube Music']
-    print("Number of music listened in 2022: ", len(videos_2022))
-    print()
-
-    print_first_and_last(videos_2022)
-
-    print()
-
-    print_top_channels(10, videos_2022, "artists")
-
-    print()
-
-    print_top_item(10, videos_2022, "musics")
-
-    print()
+    print_stats(videos_2022, 10, "musics", "artist")
